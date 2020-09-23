@@ -22,6 +22,9 @@ public class User {
 	public User () {
 		
 	}
+	public User(String string, String string2) {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "User [login=" + login + ", senha=" + senha + "]";

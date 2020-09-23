@@ -24,6 +24,7 @@ public class LoginUser extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
 	private JPasswordField passwordFieldSenha;
+	private JTextField textFieldSenha;
 
 	/**
 	 * Launch the application.
@@ -66,31 +67,37 @@ public class LoginUser extends JFrame {
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
 		
-		passwordFieldSenha = new JPasswordField();
-		passwordFieldSenha.setBounds(117, 86, 207, 20);
-		contentPane.add(passwordFieldSenha);
+		textFieldSenha = new JTextField();
+		textFieldSenha.setBounds(117, 86, 207, 20);
+		contentPane.add(textFieldSenha);
+		textFieldSenha.setColumns(10);
 		
 		JButton btnNewButtonLogar = new JButton("Logar");
 		btnNewButtonLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				UserLoger us = new UserLoger();
+				UserLoger us = new UserLoger ();
 				
-			JLabel passwordFielSenha;
-			if	(us.validacaoLogin(textFieldLogin.getText(), passwordFielSenha.getText())){
-			JLabel textFildeLogin;
-			JOptionPane.showMessageDialog(ContentPane, "Ok Login!", + textFieldLogin.getText() + "Login efetuado" , JOptionPane .YES_OPTION);
-		}else {
-			JOptionPane . showMessageDialog (contentPane, " Desculpe, mas você errou o login ou a senha " , " Login negado! " , JOptionPane . ERROR_MESSAGE );
-		}
+			if (us.validacaoLogin (textFieldLogin. getText(), textFieldSenha.getText())) {
 			
-			    textFieldLogin.setText ("");
-				passwordFieldSenha.setText ("");
+				JOptionPane . showMessageDialog (contentPane, " Ok, "  + textFieldLogin . getText () +  " Login efetuado! " );
+			
+		}else {
+			
+			JOptionPane . showMessageDialog (contentPane, " Desculpe, mas você errou o login ou a senha " , " Login negado! " , JOptionPane . ERROR_MESSAGE );
+
+		}
+		
+		textFieldLogin . setText ( " " );
+		textFieldSenha . setText ( " " );
+			
 				
 				
 			}
 		});
 		btnNewButtonLogar.setBounds(314, 196, 97, 41);
 		contentPane.add(btnNewButtonLogar);
+		
+		
 	}
 }

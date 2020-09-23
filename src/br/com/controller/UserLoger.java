@@ -12,6 +12,7 @@ public class UserLoger {
 	}
 
 	public User dummyUser () {
-		return new User ();
+		User user = new User  ("poo_user" , "poo_pass");
+		return user;
 	}
 }
